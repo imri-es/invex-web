@@ -1,0 +1,52 @@
+{
+    "auth": {
+        "login": {
+            "title": "С возвращением",
+            "email_label": "Email",
+            "email_required": "Пожалуйста, введите ваш Email!",
+            "email_invalid": "Введен некорректный E-mail!",
+            "password_label": "Пароль",
+            "password_required": "Пожалуйста, введите ваш Пароль!",
+            "submit_btn": "Войти",
+            "forgot_password_link": "Забыли пароль?",
+            "register_link": "Зарегистрироваться!",
+            "or_divider": "ИЛИ",
+            "login_success": "Вход выполнен успешно!",
+            "login_error": "Неверный email или пароль",
+            "loginAsGuest": "Войти как гость"
+        },
+        "register": {
+            "title": "Создать аккаунт",
+            "fullname_label": "Полное имя",
+            "fullname_required": "Пожалуйста, введите ваше полное имя!",
+            "email_label": "Email",
+            "email_required": "Пожалуйста, введите ваш Email!",
+            "email_invalid": "Введен некорректный E-mail!",
+            "password_label": "Пароль",
+            "password_required": "Пожалуйста, введите ваш Пароль!",
+            "password_min_length": "Пароль должен состоять минимум из 6 символов",
+            "password_uppercase": "Пароль должен содержать хотя бы одну заглавную букву",
+            "password_lowercase": "Пароль должен содержать хотя бы одну строчную букву",
+            "password_number": "Пароль должен содержать хотя бы одну цифру",
+            "password_special": "Пароль должен содержать хотя бы один специальный символ",
+            "submit_btn": "Зарегистрироваться",
+            "back_to_login_link": "Вернуться к входу",
+            "register_success": "Регистрация прошла успешно!",
+            "register_error": "Ошибка регистрации. Пожалуйста, попробуйте еще раз."
+        },
+        "forgot_password": {
+            "title": "Сброс пароля",
+            "description": "Введите свой адрес электронной почты, и мы отправим вам ссылку для сброса пароля.",
+            "email_label": "Email",
+            "email_required": "Пожалуйста, введите ваш Email!",
+            "email_invalid": "Введен некорректный E-mail!",
+            "submit_btn": "Отправить ссылку для сброса",
+            "back_to_login_link": "Вернуться к входу"
+        },
+        "banner": {
+            "title": "Invex - ваш хранитель инвентаря",
+            "subtitle": "Войдите, чтобы управлять своим инвентарем",
+            "login_instruction": "Войдите в свою учетную запись"
+        }
+    }
+}

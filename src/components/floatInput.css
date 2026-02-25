@@ -1,0 +1,54 @@
+.float-label {
+    position: relative;
+}
+
+.ant-form-item {
+    margin-bottom: 30px !important;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 32px;
+    top: 8px;
+    transition: 0.2s ease all;
+    color: #999;
+    z-index: 10;
+}
+
+.label-float {
+    top: -10px;
+    left: 12px;
+    font-size: 12px;
+    background-color: white;
+    padding: 0 4px;
+    color: #1890ff;
+}
+
+/* Detect browser autofill to float the label */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    animation-name: onAutoFillStart;
+    animation-duration: 0.1s;
+}
+
+input:not(:-webkit-autofill) {
+    animation-name: onAutoFillCancel;
+    animation-duration: 0.1s;
+}
+
+@keyframes onAutoFillStart {
+    from {}
+
+    to {}
+}
+
+@keyframes onAutoFillCancel {
+    from {}
+
+    to {}
+}

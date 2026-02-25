@@ -1,0 +1,52 @@
+{
+    "auth": {
+        "login": {
+            "title": "Welcome Back",
+            "email_label": "Email",
+            "email_required": "Please input your Email!",
+            "email_invalid": "The input is not a valid E-mail!",
+            "password_label": "Password",
+            "password_required": "Please input your Password!",
+            "submit_btn": "Log in",
+            "forgot_password_link": "Forgot password?",
+            "register_link": "Register now!",
+            "or_divider": "OR",
+            "login_success": "Login successful!",
+            "login_error": "Invalid email or password",
+            "loginAsGuest": "Login as Guest"
+        },
+        "register": {
+            "title": "Create an Account",
+            "fullname_label": "Full Name",
+            "fullname_required": "Please input your Full Name!",
+            "email_label": "Email",
+            "email_required": "Please input your Email!",
+            "email_invalid": "The input is not a valid E-mail!",
+            "password_label": "Password",
+            "password_required": "Please input your Password!",
+            "password_min_length": "Password must be at least 6 characters long",
+            "password_uppercase": "Password must contain at least one uppercase letter",
+            "password_lowercase": "Password must contain at least one lowercase letter",
+            "password_number": "Password must contain at least one number",
+            "password_special": "Password must contain at least one special character",
+            "submit_btn": "Register",
+            "back_to_login_link": "Back to login",
+            "register_success": "Registration successful!",
+            "register_error": "Registration failed. Please try again."
+        },
+        "forgot_password": {
+            "title": "Reset Password",
+            "description": "Enter your email address and we'll send you a link to reset your password.",
+            "email_label": "Email",
+            "email_required": "Please input your Email!",
+            "email_invalid": "The input is not a valid E-mail!",
+            "submit_btn": "Send Reset Link",
+            "back_to_login_link": "Back to login"
+        },
+        "banner": {
+            "title": "Invex - your inventory keeper",
+            "subtitle": "Log in to manage your inventory",
+            "login_instruction": "Log in to your account"
+        }
+    }
+}
