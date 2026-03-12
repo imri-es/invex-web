@@ -25,6 +25,8 @@ export const SocialAuthButtons: React.FC = () => {
                     token: tokenResponse.access_token,
                 });
                 localStorage.setItem('token', response.token);
+                localStorage.setItem('userEmail', response.email);
+                localStorage.setItem('userName', response.fullName);
                 dispatch(login(response));
                 message.success(t('auth.login.login_success'));
                 navigate('/dashboard');

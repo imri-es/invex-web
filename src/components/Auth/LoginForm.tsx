@@ -25,6 +25,8 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onRegisterClick, onForgotP
         try {
             const response = await authService.login(values);
             localStorage.setItem('token', response.token);
+            localStorage.setItem('userEmail', response.email);
+            localStorage.setItem('userName', response.fullName);
             dispatch(login(response));
             message.success(t('auth.login.login_success'));
             navigate('/dashboard');

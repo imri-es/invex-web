@@ -14,6 +14,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useMobile } from '../../hooks/useMobile';
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import { logout } from '../../store/slices/authSlice';
+import { setInventories, type Inventory } from '../../store/slices/inventorySlice';
+import api from '../../api/axios';
 import logo from '../../assets/logo.svg';
 
 const { Header, Sider, Content } = Layout;
@@ -27,8 +29,39 @@ export const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children })
     const { isAuthenticated } = useAppSelector((state) => state.auth);
     const inventories = useAppSelector((state) => state.inventory.items);
 
+    React.useEffect(() => {
+        if (!isAuthenticated) return;
+
+        const fetchInventories = async () => {
+            try {
+                const response = await api.get('/inventories');
+                const mappedInventories: Inventory[] = response.data.map((item: any) => ({
+                    id: item.id,
+                    name: item.name,
+                    visibility: item.visibility,
+                    recordsCount: item.numberOfRecords,
+                    lastModified: item.updatedAt,
+                    modifiedBy: item.ownerEmail,
+                    owner: item.ownerEmail,
+                    access: item.ownerId,
+                    customIdMask: item.customIdMask,
+                    // Note: accesses and fields might be fetched separately or populated later
+                    // depending on how GetInventories expands in the future, 
+                    // right now we just grab the base properties.
+                }));
+                dispatch(setInventories(mappedInventories));
+            } catch (error) {
+                console.error("Failed to fetch inventories globally:", error);
+            }
+        };
+
+        fetchInventories();
+    }, [isAuthenticated, dispatch]);
+
     const handleLogout = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userName',);
         dispatch(logout());
         navigate('/login');
     };

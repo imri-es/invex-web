@@ -7,7 +7,7 @@ interface AuthState {
 
 const initialState: AuthState = {
     isAuthenticated: !!localStorage.getItem('token'),
-    user: null,
+    user: { name: localStorage.getItem('userName'), email: localStorage.getItem('userEmail') },
 };
 
 const authSlice = createSlice({

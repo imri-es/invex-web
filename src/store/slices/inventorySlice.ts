@@ -1,13 +1,31 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
+export interface CustomField {
+    id?: string;
+    name: string;
+    description?: string;
+    type: string;
+    isDisplay: boolean;
+}
+
+export interface InventoryAccess {
+    id?: string;
+    userId: string;
+    accessType: string;
+}
+
 export interface Inventory {
     id: string;
     name: string;
+    visibility?: string;
     recordsCount: number;
     lastModified: string;
     modifiedBy: string;
     owner: string;
     access: string;
+    customIdMask?: string;
+    fields?: CustomField[];
+    accesses?: InventoryAccess[];
 }
 
 interface InventoryState {
@@ -15,41 +33,16 @@ interface InventoryState {
 }
 
 const initialState: InventoryState = {
-    items: [
-        {
-            id: 'inv-1',
-            name: 'Main Warehouse',
-            recordsCount: 154,
-            lastModified: '2026-02-25T10:30:00Z',
-            modifiedBy: 'Admin User',
-            owner: 'Admin User',
-            access: 'Write only',
-        },
-        {
-            id: 'inv-2',
-            name: 'Retail Store A',
-            recordsCount: 42,
-            lastModified: '2026-02-24T14:15:00Z',
-            modifiedBy: 'Store Manager',
-            owner: 'Store Manager',
-            access: 'Admin',
-        },
-        {
-            id: 'inv-3',
-            name: 'Retail Store B',
-            recordsCount: 28,
-            lastModified: '2026-02-22T09:45:00Z',
-            modifiedBy: 'Store Manager',
-            owner: 'Store Manager',
-            access: 'Admin',
-        }
-    ],
+    items: [],
 };
 
 const inventorySlice = createSlice({
     name: 'inventory',
     initialState,
     reducers: {
+        setInventories: (state, action: PayloadAction<Inventory[]>) => {
+            state.items = action.payload;
+        },
         addInventory: (state, action: PayloadAction<Inventory>) => {
             state.items.push(action.payload);
         },
@@ -61,9 +54,15 @@ const inventorySlice = createSlice({
             if (index !== -1) {
                 state.items[index] = action.payload;
             }
+        },
+        patchInventoryLocal: (state, action: PayloadAction<Partial<Inventory> & { id: string }>) => {
+            const index = state.items.findIndex(item => item.id === action.payload.id);
+            if (index !== -1) {
+                state.items[index] = { ...state.items[index], ...action.payload };
+            }
         }
     },
 });
 
-export const { addInventory, deleteInventory, updateInventory } = inventorySlice.actions;
+export const { setInventories, addInventory, deleteInventory, updateInventory, patchInventoryLocal } = inventorySlice.actions;
 export default inventorySlice.reducer;

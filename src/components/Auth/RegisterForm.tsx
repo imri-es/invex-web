@@ -25,6 +25,8 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({ onBackToLoginClick }
             const response = await authService.register(values);
             // Save token and dispatch login to Redux
             localStorage.setItem('token', response.token);
+            localStorage.setItem('userEmail', response.email);
+            localStorage.setItem('userName', response.fullName);
             dispatch(login(response));
             message.success(t('auth.register.register_success'));
             navigate('/dashboard');
