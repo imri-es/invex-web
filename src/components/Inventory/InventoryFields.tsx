@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Typography, Table, Button, Space, Input, Select, Checkbox, Popconfirm } from 'antd';
+import { Typography, Table, Button, Input, Select, Checkbox, Popconfirm } from 'antd';
 import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
@@ -73,6 +73,7 @@ export const InventoryFields: React.FC = () => {
             key: 'name',
             render: (text: string, record: CustomField, index: number) => (
                 <Input
+                    key={record.id}
                     value={text}
                     onChange={e => updateField(index, 'name', e.target.value)}
                     placeholder="E.g., Serial Number"
@@ -86,6 +87,7 @@ export const InventoryFields: React.FC = () => {
             width: 200,
             render: (text: string, record: CustomField, index: number) => (
                 <Select
+                    key={record.id}
                     value={text}
                     style={{ width: '100%' }}
                     onChange={val => updateField(index, 'type', val)}
@@ -107,6 +109,7 @@ export const InventoryFields: React.FC = () => {
             align: 'center' as const,
             render: (checked: boolean, record: CustomField, index: number) => (
                 <Checkbox
+                    key={record.id}
                     checked={checked}
                     onChange={e => updateField(index, 'isDisplay', e.target.checked)}
                 />
@@ -119,6 +122,7 @@ export const InventoryFields: React.FC = () => {
             align: 'center' as const,
             render: (_: any, record: CustomField, index: number) => (
                 <Popconfirm
+                    key={record.id}
                     title="Delete field"
                     description="Are you sure you want to remove this field?"
                     onConfirm={() => removeField(index)}

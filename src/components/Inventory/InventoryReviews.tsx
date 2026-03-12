@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Typography, Space, Spin, message } from 'antd';
 import { useParams } from 'react-router-dom';
-import { useAppSelector } from '../../store/hooks';
 import { ReviewCard, type ReviewData } from './ReviewCard';
 import { ReviewComposer } from './ReviewComposer';
 import api from '../../api/axios';
